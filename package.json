@@ -1,0 +1,19 @@
+{
+  "name": "tarea-seguridad-ci-crud",
+  "version": "1.0.0",
+  "description": "Proyecto CRUD basico para practica de seguridad de software e integracion continua.",
+  "main": "src/app.js",
+  "scripts": {
+    "build": "node --check src/app.js",
+    "test": "node tests/app.test.js",
+    "ci": "npm run build && npm test"
+  },
+  "keywords": [
+    "crud",
+    "ci",
+    "github-actions",
+    "seguridad-software"
+  ],
+  "author": "Estudiante",
+  "license": "MIT"
+}

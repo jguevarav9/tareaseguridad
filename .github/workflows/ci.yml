@@ -1,0 +1,26 @@
+name: Integracion continua
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validar-proyecto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validar sintaxis
+        run: npm run build
+
+      - name: Ejecutar pruebas
+        run: npm test

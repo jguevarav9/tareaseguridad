@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Informe Practica 2 - Seguridad de Software</title>
+  <style>
+    @page { size: A4; margin: 18mm; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2933;
+      line-height: 1.42;
+      margin: 0;
+      background: #ffffff;
+      font-size: 12px;
+    }
+    h1, h2, h3 { color: #12355b; margin: 0 0 8px; }
+    h1 { font-size: 22px; text-align: center; text-transform: uppercase; }
+    h2 {
+      font-size: 15px;
+      border-bottom: 2px solid #12355b;
+      padding-bottom: 4px;
+      margin-top: 18px;
+      text-transform: uppercase;
+    }
+    h3 { font-size: 13px; margin-top: 12px; }
+    p { margin: 6px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 12px;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #9aa6b2;
+      padding: 6px;
+      vertical-align: top;
+    }
+    th {
+      background: #e8eef5;
+      color: #102a43;
+      text-align: left;
+      font-weight: 700;
+    }
+    ul { margin: 6px 0 8px 18px; padding: 0; }
+    code, pre {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 11px;
+    }
+    pre {
+      background: #f4f6f8;
+      border: 1px solid #c9d2dc;
+      padding: 8px;
+      white-space: pre-wrap;
+      page-break-inside: avoid;
+    }
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 88vh;
+      text-align: center;
+    }
+    .cover .meta {
+      margin-top: 28px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .page-break { page-break-before: always; }
+    .badge {
+      display: inline-block;
+      border: 1px solid #486581;
+      padding: 2px 6px;
+      margin-right: 4px;
+      background: #f0f4f8;
+      font-weight: 700;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin: 10px 0;
+      page-break-inside: avoid;
+    }
+    .flow div {
+      border: 1px solid #627d98;
+      background: #f0f4f8;
+      padding: 8px 5px;
+      text-align: center;
+      min-height: 34px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <h1>Informe de Practica 2</h1>
+    <h2>Implementacion de Integracion Continua en un Proyecto CRUD</h2>
+    <div class="meta">
+      <p><strong>Asignatura:</strong> Seguridad de Software [SEGSOF]</p>
+      <p><strong>Facultad:</strong> Facultad Ciencias e Ingenieria</p>
+      <p><strong>Carrera:</strong> Software en Modalidad Presencial</p>
+      <p><strong>Guia:</strong> G002_S03_S2019_PRESENCIAL</p>
+      <p><strong>No. de practica:</strong> 2</p>
+      <p><strong>Tiempo asignado:</strong> 03:00</p>
+      <p><strong>Docente de la asignatura:</strong> Carrion Leon Delia Isabel</p>
+      <p><strong>Docente de la practica:</strong> Falquez Jaramillo Jaime Alberto</p>
+      <p><strong>Estudiante:</strong> ______________________________</p>
+      <p><strong>Fecha:</strong> 17 de mayo de 2026</p>
+    </div>
+  </section>
+
+  <section class="page-break">
+    <h2>1. Datos generales</h2>
+    <table>
+      <tr><th>Unidad</th><th>Tema</th><th>Subtema</th></tr>
+      <tr>
+        <td>1. Introduccion a la seguridad de software.</td>
+        <td>Fundamentos de la seguridad de software</td>
+        <td>Introduccion; amenazas a la seguridad del software; fuentes de inseguridad del software; necesidad de auditoria de software.</td>
+      </tr>
+      <tr>
+        <td>1. Introduccion a la seguridad de software.</td>
+        <td>Software seguro</td>
+        <td>Introduccion; definicion de propiedades de software seguro; arquitectura y caracteristicas de seguridad.</td>
+      </tr>
+      <tr>
+        <td>1. Introduccion a la seguridad de software.</td>
+        <td>Vulnerabilidades</td>
+        <td>Clasificacion de vulnerabilidades; bases de datos de vulnerabilidades; riesgos y amenazas.</td>
+      </tr>
+    </table>
+
+    <p><strong>Resultado de aprendizaje:</strong> Describir conceptos de vulnerabilidades relacionados a la seguridad de software.</p>
+    <p><strong>Tipo de practica:</strong> Asistida / No asistida.</p>
+    <p><strong>Evaluacion:</strong> Individual y grupal. Cantidad de grupos: 1. Cantidad de alumnos: 1.</p>
+
+    <h2>2. Objetivo de la practica</h2>
+    <p>Implementar un flujo basico de integracion continua en un proyecto de software, utilizando herramientas automatizadas como GitHub Actions, con el fin de validar automaticamente la construccion y sintaxis del sistema al realizar cambios en el repositorio, promoviendo buenas practicas en la gestion de la configuracion y la colaboracion en equipos de desarrollo.</p>
+
+    <h2>3. Ambiente y recursos</h2>
+    <table>
+      <tr><th>Tipo de ambiente</th><th>Nombre</th><th>Ubicacion</th></tr>
+      <tr><td>Laboratorio</td><td>Laboratorio de computacion redes</td><td>Laboratorio de redes - campus universidad (CAP: 20)</td></tr>
+    </table>
+    <table>
+      <tr><th>Cantidad</th><th>Unidad</th><th>Equipo / material</th><th>Descripcion</th></tr>
+      <tr><td>1</td><td>Unidad/es</td><td>Computadora</td><td>Disponible en laboratorio</td></tr>
+      <tr><td>1</td><td>Unidad/es</td><td>Acceso a Internet</td><td>Disponible en laboratorio</td></tr>
+    </table>
+  </section>
+
+  <section class="page-break">
+    <h2>4. Proyecto seleccionado</h2>
+    <p>Para la practica se creo desde cero un proyecto CRUD basico de tareas con JavaScript y Node.js. El sistema permite crear, listar, actualizar y eliminar tareas mediante una clase repositorio, lo que facilita validar reglas de negocio simples y ejecutar pruebas automatizadas sin depender de servicios externos.</p>
+
+    <table>
+      <tr><th>Elemento</th><th>Descripcion</th></tr>
+      <tr><td>Nombre del proyecto</td><td>tarea-seguridad-ci-crud</td></tr>
+      <tr><td>Lenguaje</td><td>JavaScript ejecutado con Node.js</td></tr>
+      <tr><td>Modulo principal</td><td><code>src/app.js</code></td></tr>
+      <tr><td>Pruebas</td><td><code>tests/app.test.js</code></td></tr>
+      <tr><td>Pipeline CI</td><td><code>.github/workflows/ci.yml</code></td></tr>
+    </table>
+
+    <h2>5. Sesion 1 - Diagnostico y conceptualizacion</h2>
+    <table>
+      <tr><th>Concepto</th><th>Hallazgo aplicado al proyecto</th><th>Relacion teorica</th></tr>
+      <tr>
+        <td>Administracion del cambio</td>
+        <td>Los cambios se organizan como mejoras o correcciones sobre ramas de trabajo. Cada cambio queda documentado mediante commits y Pull Requests.</td>
+        <td>Permite controlar modificaciones, reducir errores y mantener trazabilidad sobre decisiones tecnicas.</td>
+      </tr>
+      <tr>
+        <td>Gestion de versiones</td>
+        <td>Se propone trabajar con rama principal <code>main</code>, ramas por funcionalidad y etiquetas de version como <code>v1.0.0</code>.</td>
+        <td>La version permite identificar entregas estables, reproducir estados anteriores y auditar el historial del software.</td>
+      </tr>
+      <tr>
+        <td>Construccion del sistema</td>
+        <td>La construccion se valida con <code>npm run build</code>, que revisa la sintaxis del archivo principal con <code>node --check</code>.</td>
+        <td>La automatizacion disminuye fallos humanos y valida que el codigo pueda integrarse correctamente.</td>
+      </tr>
+      <tr>
+        <td>Gestion de entregas</td>
+        <td>La entrega se simula con changelog, notas de release, version <code>v1.0.0</code> y artefacto comprimido.</td>
+        <td>Una entrega formal conserva evidencias, alcance de cambios y version liberada.</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="page-break">
+    <h2>6. Sesion 2 - Gestion de versiones y control de cambios</h2>
+    <h3>Comandos Git utilizados</h3>
+    <table>
+      <tr><th>Comando</th><th>Uso</th><th>Explicacion</th></tr>
+      <tr><td><code>git init</code></td><td>Inicializar repositorio</td><td>Crea la carpeta interna <code>.git</code> para controlar versiones del proyecto.</td></tr>
+      <tr><td><code>git add .</code></td><td>Preparar cambios</td><td>Agrega archivos al area de preparacion antes del commit.</td></tr>
+      <tr><td><code>git commit -m "feat: crear proyecto base con ci"</code></td><td>Registrar cambios</td><td>Guarda una version del proyecto con un mensaje descriptivo.</td></tr>
+      <tr><td><code>git checkout -b feature/crud-tareas</code></td><td>Crear rama</td><td>Permite trabajar una funcionalidad sin afectar directamente la rama principal.</td></tr>
+      <tr><td><code>git status</code></td><td>Revisar estado</td><td>Muestra archivos modificados, agregados o pendientes.</td></tr>
+      <tr><td><code>git log --oneline</code></td><td>Consultar historial</td><td>Presenta los commits realizados de forma resumida.</td></tr>
+      <tr><td><code>git tag v1.0.0</code></td><td>Etiquetar version</td><td>Marca una version estable para entrega.</td></tr>
+    </table>
+
+    <h3>Politica de commits</h3>
+    <p>Se recomienda usar mensajes cortos y descriptivos siguiendo una convencion simple:</p>
+    <ul>
+      <li><span class="badge">feat</span> Nueva funcionalidad.</li>
+      <li><span class="badge">fix</span> Correccion de errores.</li>
+      <li><span class="badge">test</span> Cambios en pruebas automatizadas.</li>
+      <li><span class="badge">docs</span> Cambios de documentacion.</li>
+      <li><span class="badge">ci</span> Cambios en configuracion de integracion continua.</li>
+    </ul>
+
+    <h3>Evidencia sugerida para GitHub</h3>
+    <p>Al subir el proyecto a GitHub se deben capturar las siguientes pantallas: repositorio creado, ramas generadas, Pull Request abierto, historial de commits y estado del workflow de GitHub Actions.</p>
+  </section>
+
+  <section class="page-break">
+    <h2>7. Sesion 3 - Construccion e integracion del sistema</h2>
+    <p>Se implemento un pipeline basico de GitHub Actions que se ejecuta al realizar cambios en la rama <code>main</code> o al abrir un Pull Request. El pipeline descarga el codigo, configura Node.js, valida la sintaxis y ejecuta pruebas automatizadas.</p>
+
+    <h3>YAML del pipeline</h3>
+    <pre>name: Integracion continua
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validar-proyecto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validar sintaxis
+        run: npm run build
+
+      - name: Ejecutar pruebas
+        run: npm test</pre>
+
+    <h3>Diagrama del flujo de integracion</h3>
+    <div class="flow">
+      <div>Commit</div>
+      <div>Push / Pull Request</div>
+      <div>GitHub Actions</div>
+      <div>Build y pruebas</div>
+      <div>Reporte del estado</div>
+    </div>
+
+    <h3>Reporte de ejecucion esperado</h3>
+    <table>
+      <tr><th>Paso</th><th>Resultado esperado</th></tr>
+      <tr><td>Descargar codigo</td><td>Repositorio disponible en el ambiente de ejecucion.</td></tr>
+      <tr><td>Configurar Node.js</td><td>Node.js version 20 instalado correctamente.</td></tr>
+      <tr><td>Validar sintaxis</td><td>El archivo <code>src/app.js</code> no presenta errores de sintaxis.</td></tr>
+      <tr><td>Ejecutar pruebas</td><td>Las pruebas CRUD finalizan correctamente.</td></tr>
+    </table>
+  </section>
+
+  <section class="page-break">
+    <h2>8. Sesion 4 - Entrega simulada del producto</h2>
+    <table>
+      <tr><th>Entregable</th><th>Evidencia generada</th></tr>
+      <tr><td>Nombre de version</td><td><code>v1.0.0</code></td></tr>
+      <tr><td>Archivo comprimido</td><td><code>tarea-seguridad-ci-crud-v1.0.0.zip</code></td></tr>
+      <tr><td>Changelog</td><td><code>CHANGELOG.md</code></td></tr>
+      <tr><td>Repositorio de artefactos</td><td>GitHub Releases, al publicar la version en el repositorio remoto.</td></tr>
+    </table>
+
+    <h3>Analisis del control de cambios y versiones</h3>
+    <p>El uso de Git permite mantener trazabilidad sobre cada modificacion del codigo. Las ramas separan el trabajo por funcionalidad, los commits documentan el avance y los Pull Requests permiten revisar cambios antes de fusionarlos. La version <code>v1.0.0</code> representa una entrega inicial estable del CRUD y del pipeline CI.</p>
+
+    <h3>Lecciones aprendidas</h3>
+    <ul>
+      <li>La integracion continua ayuda a detectar errores de sintaxis y fallos de pruebas antes de integrar cambios.</li>
+      <li>Los commits descriptivos facilitan la auditoria del proyecto y el seguimiento de responsabilidades.</li>
+      <li>Las releases ordenan la entrega del software y permiten identificar claramente que version fue publicada.</li>
+      <li>La documentacion del flujo Git y del pipeline reduce confusiones al trabajar en equipo.</li>
+    </ul>
+
+    <h2>9. Conclusiones</h2>
+    <p>Se implemento un proyecto CRUD basico desde cero y se configuro un flujo de integracion continua mediante GitHub Actions. El pipeline valida la sintaxis y ejecuta pruebas automatizadas, cumpliendo el objetivo de automatizar controles minimos antes de integrar cambios. Tambien se documento el control de versiones, la politica de commits, el flujo de Pull Requests y la entrega simulada del producto.</p>
+
+    <h2>10. Referencias bibliograficas</h2>
+    <ul>
+      <li>Espinosa, Maria Paula. (2011). Esquema de seguridad para el desarrollo de software.</li>
+      <li>GitHub Docs. GitHub Actions documentation.</li>
+      <li>Pro Git Book. Control de versiones con Git.</li>
+      <li>OWASP Foundation. Software Assurance y buenas practicas de seguridad.</li>
+    </ul>
+  </section>
+</body>
+</html>
