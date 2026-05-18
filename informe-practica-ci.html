@@ -53,6 +53,14 @@
       white-space: pre-wrap;
       page-break-inside: avoid;
     }
+    img.evidence {
+      width: 100%;
+      max-height: 430px;
+      object-fit: contain;
+      border: 1px solid #9aa6b2;
+      margin: 6px 0 14px;
+      page-break-inside: avoid;
+    }
     .cover {
       display: flex;
       flex-direction: column;
@@ -291,7 +299,67 @@ jobs:
     <h2>9. Conclusiones</h2>
     <p>Se implemento un proyecto CRUD basico desde cero y se configuro un flujo de integracion continua mediante GitHub Actions. El pipeline valida la sintaxis y ejecuta pruebas automatizadas, cumpliendo el objetivo de automatizar controles minimos antes de integrar cambios. Tambien se documento el control de versiones, la politica de commits, el flujo de Pull Requests y la entrega simulada del producto.</p>
 
-    <h2>10. Referencias bibliograficas</h2>
+    <h2>10. Verificacion paso a paso de la guia</h2>
+    <table>
+      <tr><th>Requisito de la guia</th><th>Evidencia generada</th><th>Estado</th></tr>
+      <tr>
+        <td>Seleccionar o crear un proyecto CRUD.</td>
+        <td>Proyecto CRUD de tareas creado en <code>src/app.js</code>, con pruebas en <code>tests/app.test.js</code>.</td>
+        <td>Cumple</td>
+      </tr>
+      <tr>
+        <td>Analizar procesos de cambio, control de versiones, construccion e integracion.</td>
+        <td>Tabla de hallazgos en la Sesion 1 del informe.</td>
+        <td>Cumple</td>
+      </tr>
+      <tr>
+        <td>Configurar repositorio en GitHub.</td>
+        <td>Repositorio publicado en <code>https://github.com/jguevarav9/tareaseguridad</code>.</td>
+        <td>Cumple</td>
+      </tr>
+      <tr>
+        <td>Crear ramas por funcionalidad o rol.</td>
+        <td>Rama <code>feature/evidencias-practica</code> usada para agregar las evidencias finales.</td>
+        <td>Cumple</td>
+      </tr>
+      <tr>
+        <td>Registrar comandos Git y politica de commits.</td>
+        <td>Tabla de comandos y politica <code>feat</code>, <code>fix</code>, <code>docs</code>, <code>test</code>, <code>ci</code>.</td>
+        <td>Cumple</td>
+      </tr>
+      <tr>
+        <td>Implementar herramienta de construccion automatizada.</td>
+        <td>Scripts <code>npm run build</code>, <code>npm test</code> y <code>npm run ci</code> definidos en <code>package.json</code>.</td>
+        <td>Cumple</td>
+      </tr>
+      <tr>
+        <td>Configurar pipeline CI.</td>
+        <td>Workflow en <code>.github/workflows/ci.yml</code> con validacion de sintaxis y pruebas.</td>
+        <td>Cumple</td>
+      </tr>
+      <tr>
+        <td>Agregar captura de ejecucion del pipeline.</td>
+        <td>Captura <code>evidencias/captura-actions.png</code> incluida en este informe.</td>
+        <td>Cumple</td>
+      </tr>
+      <tr>
+        <td>Simular entrega de release.</td>
+        <td>Tag <code>v1.0.0</code>, archivo <code>tarea-seguridad-ci-crud-v1.0.0.zip</code> y <code>CHANGELOG.md</code>.</td>
+        <td>Cumple</td>
+      </tr>
+    </table>
+
+    <h2>11. Anexo de capturas</h2>
+    <h3>Captura 1 - Repositorio publicado en GitHub</h3>
+    <img class="evidence" src="evidencias/captura-repositorio.png" alt="Captura del repositorio en GitHub">
+
+    <h3>Captura 2 - Ejecucion del pipeline en GitHub Actions</h3>
+    <img class="evidence" src="evidencias/captura-actions.png" alt="Captura de GitHub Actions">
+
+    <h3>Captura 3 - Version/tag v1.0.0</h3>
+    <img class="evidence" src="evidencias/captura-tags.png" alt="Captura del tag v1.0.0">
+
+    <h2>12. Referencias bibliograficas</h2>
     <ul>
       <li>Espinosa, Maria Paula. (2011). Esquema de seguridad para el desarrollo de software.</li>
       <li>GitHub Docs. GitHub Actions documentation.</li>
